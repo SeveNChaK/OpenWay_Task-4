@@ -9,37 +9,39 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String value;
+        double sum, p, k;
         while (true) {
-            System.out.println("Введите сумму вклада(руб): ");
+
+            System.out.println("Enter the deposit amount(RUR): ");
             value = scanner.next();
-            double sum;
             if (check(value))
                 sum = Double.valueOf(value);
             else {
-                System.out.println("Неверный формат (Пример: 10; 10.2)");
+                System.out.println("Invalid format (Example: 10; 10.2)");
                 continue;
             }
-            System.out.println("Введите процентную ставку(%): ");
+
+            System.out.println("Enter the interest rate(%): ");
             value = scanner.next();
-            double p;
             if (check(value))
                 p = Double.valueOf(value);
             else {
-                System.out.println("Неверный формат (Пример: 10; 10.2)");
+                System.out.println("Invalid format (Example: 10; 10.2)");
                 continue;
             }
-            System.out.println("Введите требующуюся кратность: ");
+
+            System.out.println("Enter the required multiplicity: ");
             value = scanner.next();
-            double k;
             if (check(value))
                 k = Double.valueOf(value);
             else {
-                System.out.println("Неверный формат (Пример: 10; 10.2)");
+                System.out.println("Invalid format (Example: 10; 10.2)");
                 continue;
             }
-            System.out.println("Через " +
+
+            System.out.println("The deposit amount will increase " + k + " times in " +
                     new DecimalFormat("#.#").format(Math.log(k) / Math.log(1 + p / 100)) +
-                    " лет сумма вклада " + sum + " рублей учеличется в " + k + " раз.");
+                    " years.");
             break;
         }
     }
